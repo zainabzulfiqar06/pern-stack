@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: mynamespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: docker.io/library/backend:latest  # Replace with your actual image
+        imagePullPolicy: Never  
+        ports:
+        - containerPort: 5000
+        env:
+        - name: PGUSER
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: PGUSER
+        - name: PGHOST
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: PGHOST
+        - name: PGDATABASE
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: PGDATABASE
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: PGPASSWORD
+        - name: PGPORT
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: PGPORT
+
