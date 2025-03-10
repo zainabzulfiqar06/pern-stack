@@ -5,7 +5,7 @@ function App() {
   const [data, setData] = useState([]);
   const [name, setName] = useState(""); // State for user input
 
-  const backendURL = "http://192.168.49.2:31234";
+  const backendURL = "xxx";
   const socketURL = `${backendURL.replace("http", "ws")}/ws`;
 
   console.log("Using Backend URL:", backendURL);
