@@ -9,7 +9,7 @@ app.use(express.json());
 
 // ✅ Improved CORS configuration
 app.use(cors({
-  origin: "http://192.168.49.2:3000", // Change to frontend URL in production
+  origin: "xxx", // Change to frontend URL in production
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
   credentials: true
@@ -30,10 +30,10 @@ server.on('upgrade', (request, socket, head) => {
 });
 
 const pool = new Pool({
-  user: 'neondb_owner',
-  host: 'ep-odd-darkness-a4vnxb1b-pooler.us-east-1.aws.neon.tech',
-  database: 'neondb',
-  password: 'npg_bRUADE7BJkm5',
+  user: 'xxx',
+  host: 'xxx',
+  database: 'xxx',
+  password: 'xxx',
   ssl: { rejectUnauthorized: false },
   port: 5432,
 });
